@@ -3,12 +3,17 @@ const { v4 } = require("uuid");
 const listContacts = require("./listContacts");
 const updateContacts = require("./updateContacts");
 
-const addContact = async (data) => {
+const addContact = async (body) => {
     try {
-        const newContact = { ...data, id: v4() };
-        const contact = await listContacts();
+        const newContact = {
+            id: v4(),
+            name: body.name,
+            email: body.email,
+            phone: body.phone
+        };
+        const contacts = await listContacts();
         contacts.push(newContact);
-        await updateContacts(contact);
+        await updateContacts(contacts);
         return newContact;
     }
     catch (error) {
