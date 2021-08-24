@@ -3,8 +3,8 @@ const fs = require("fs/promises");
 const filePath = require("./filePath");
 
 const updateContacts = async (contacts) => {
-    const productsString = JSON.stringify(contacts);
-    await fs.writeFile(filePath, productsString);
+    const contactsString = JSON.stringify(contacts);
+    await fs.writeFile(filePath, contactsString);
 };
 
 module.exports = updateContacts;

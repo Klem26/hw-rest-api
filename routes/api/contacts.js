@@ -3,14 +3,14 @@ const router = express.Router();
 
 const ctrl = require("../../controllers/contacts")
 
-router.get('/', ctrl.listContacts);
+router.get("/", ctrl.listContacts);
 
 router.get("/:contactId", ctrl.getContactById);
 
-router.post('/', ctrl.addContact);
+router.post("/", ctrl.addContact);
 
-router.delete('/:contactId', ctrl.removeContact);
+router.delete("/:contactId", ctrl.removeContact);
 
-router.put('/:contactId', ctrl.update);
+router.put("/:contactId", ctrl.update);
 
 module.exports = router;
