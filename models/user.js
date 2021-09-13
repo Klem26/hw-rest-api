@@ -25,6 +25,10 @@ const userSchema = Schema({
     type: String,
     default: null,
   },
+  image: {
+    type: String,
+    default: "",
+  }
 }, { versionKey: false, timestamps: true });
 
 
@@ -33,6 +37,7 @@ const joiUserSchema = Joi.object({
     email: Joi.string().email({ minDomainSegments: 2 }).required(),
     subscription: Joi.string(),
     token: Joi.string(),
+    image:Joi.string(),
 })
 
 const User = model("user", userSchema );
